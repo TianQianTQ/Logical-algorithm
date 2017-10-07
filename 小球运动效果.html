@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运动的小球</title>
+    <style>
+        .ball{
+            width:80px;
+            height:80px;
+            background: red;
+            border-radius: 50%;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="ball"></div>         <!--单个小球的div-->
+
+    <script>
+        var oBall = document.querySelector('.ball'),
+            leftNum = 5;             //设置小球每次向左运动的像素值
+            topNum = 5;              //设置小球每次向下运动的像素值
+            leftMax = document.documentElement.clientWidth-oBall.clientWidth;             //浏览器窗口宽度减去小球的宽度等于小球能运动到的最大左边位置，下一行代码同理。
+            topMax = document.documentElement.clientHeight-oBall.clientHeight;
+        window.onresize = function(){     //当浏览器窗口发生变化时，实时获取浏览器窗口的宽高
+            leftMax = document.documentElement.clientWidth-oBall.clientWidth;
+            topMax = document.documentElement.clientHeight-oBall.clientHeight;
+        }
+        setInterval(function(){              //为小球的运动新建一个计时器
+            var Left = oBall.offsetLeft+leftNum,    //小球每次运动完之后，距离浏览器左边边框的距离：上一次距离边框的距离加上这次运动的距离，下一行代码同理
+                Top = oBall.offsetTop+topNum;
+            //判断当小球向左移动的位置大于之前限定的最大距离或者小于0时，也就是超出浏览器窗口的左右边框时，
+            //使他运动的方向取反leftNum = -leftNum，下面Top的判断同理。
+            if(Left>=leftMax){               
+                Left = leftMax;
+                leftNum = -leftNum;
+                ballBg(oBall);     //传参数到下面的获取随机颜色的function
+            }else if(Left<=0){
+                Left = 0;
+                leftNum = -leftNum;
+                ballBg(oBall);
+            };
+            if(Top>=topMax){
+                Top = topMax;
+                topNum = -topNum;
+                ballBg(oBall);
+            }else if(Top<=0){
+                Top = 0;
+                topNum = -topNum;
+                ballBg(oBall);
+            };
+            oBall.style.left = Left+'px';      
+            oBall.style.top = Top+'px';
+
+        },30);                        //小球每次执行运动的时间
+
+        function ballBg(obj){             //随机获取小球颜色
+            var r = Math.floor(Math.random()*256);
+                g = Math.floor(Math.random()*256);
+                b = Math.floor(Math.random()*256);
+               obj.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+        }
+    </script>
+</body>
+</html>

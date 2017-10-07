@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>柯里化</title>
+	</head>
+	<body>
+		<script>
+		var add=function(){
+			var args = [];
+			return function(){
+				console.log(args);
+				if(arguments.length===0){
+					return args.reduce(function(a,b){
+						return a+b;
+					})
+				}
+				[].push.apply(args,[].slice.call(arguments));
+				return arguments.callee;
+			}
+		}
+	    var sum = add();
+	    sum(20,30);
+	    console.log(sum());
+	   //通用的柯里化函数
+/*	   var currying = function(fn){
+	   	var args = [];
+	   	return function(){
+	   		if(arguments.length===0){
+	   			return fn.apply(this,args);
+	   		}
+	   		[].push.apply(args,[].slice.call(arguments));
+	   		return arguments.callee;
+	   	}
+	   }
+	   var add = function(){
+	   	var total = 0;
+	   	for(var i=0,c;c=arguments[i++];){
+	   		total+=c;
+	   	}
+	   	return total;
+	   }
+	   var sum = currying(add);
+	   sum(20,30);
+	   console.log(sum());*/
+	   /*柯里化的作用：
+	    * 1、延迟计算
+	    * 2、参数复用
+	    * 3、动态创建函数
+	    * Function.prototype.bind方法也是柯里化的应用
+	    */
+		</script>
+	</body>
+</html>
