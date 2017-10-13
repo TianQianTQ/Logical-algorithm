@@ -18,3 +18,24 @@
 
 	4、中间元素等于最后一个元素，则将第二个指针向前移，然后继续比较。
  * */
+function minNumberInRotateArray(rotateArray)
+{
+    var len = rotateArray.length;
+    if(len == 0){
+        return 0;
+    }else{
+        var low = 0,
+            high = len -1 ;
+        while(low < high){
+            var mid = low + Math.floor((high - low)/2);
+            if(rotateArray[mid] > rotateArray[high]){
+                low = mid + 1;
+            }else if(rotateArray[mid] == rotateArray[high]){
+                high = high -1;
+            }else{
+                high = mid;
+            }
+        }
+        return rotateArray[low];
+    }
+}
