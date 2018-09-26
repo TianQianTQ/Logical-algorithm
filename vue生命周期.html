@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css揭秘 第一章 </title>
+</head>
+<style type="text/css">
+	.parent{
+		display:flex;
+		justify-content:space-between;
+		align-items:center;
+		height:400px;
+	}
+	.child{
+		width:40px;
+		height:40px;
+		border:1px solid red;
+	}
+</style>
+<body>
+	<div class='parent'>
+		<div class='child'></div>
+		<div class='child'></div>
+		<div class='child'></div>
+	</div>
+	<script>
+		function getUDate(){
+			let nowDay = new Date()
+			let year = nowDay.getFullYear();
+			let month = nowDay.getMonth();
+			console.log(month);
+			if(month == 0){
+				year = year-1;
+				month = 12
+			}
+			if(month < 10){
+				month = '0'+month
+			}
+			let myDate = new Date(year,month,0);
+			let day = myDate.getUTCDay()+1;
+			let lastDay = year + month +myDate.getDate()+"   "+day;
+			console.log(lastDay);
+		}
+		getUDate()
+	</script>
+</body>
+</html>

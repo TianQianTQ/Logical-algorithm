@@ -1,0 +1,1 @@
+/*** 替换指定字符串中间指定长度字符为 * 方法* */function ChangeX(front,back,str){    let left = str.slice(0,front);    let right = str.slice(str.length - back, str.length);    let middle = str.slice(front, str.length - back);    middle = middle.replace(/\d/g,'*');    return left + middle +right;}/*** 手机号码显示前三位后四位  156****0402* */function MobileX(v){    return ChangeX(3,4,v);}

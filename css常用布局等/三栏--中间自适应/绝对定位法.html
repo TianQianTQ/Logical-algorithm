@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>绝对定位法</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				text-align:center;
+			}
+			#container{
+				width:100%;
+				height:100%;
+				position:relative;
+				background:#272822;
+			}
+			.lr{
+				width:200px;
+				height:200px;
+				position: absolute;
+				top:0;
+			}
+			.left{
+				left:0;
+				background:#9BC14D;
+			}
+			.right{
+				right:0;
+				background:#4DA2C1;
+			}
+			.main{
+				height:200px;
+				background:#9D4DC1;
+				width:auto;
+				/*margin:0 200px;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+            <div class="left lr">main</div>
+            <div class="right lr">left</div>
+            <div class="main">right</div>
+        </div>
+	</body>
+</html>

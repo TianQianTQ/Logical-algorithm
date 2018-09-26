@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>flex</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.container{
+				/*float:left;*/
+				width:100%;
+				display:flex;
+				flex-direction:column;
+				/*flex-direction:column-reverse;*/
+				/*flex-flow:column nowrap;*/
+				/*justify-content:space-around;*/
+			}
+			.container > div:nth-child(even){
+				background:#F7EDCE;
+			}			
+			.container > div:nth-child(odd){
+				background:#F92672;
+			}
+			.container>div{
+				/*width:16.66%;*/
+				flex:1;
+				margin-right:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>			
+		</div>
+	</body>
+</html>

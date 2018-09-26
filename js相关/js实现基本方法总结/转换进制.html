@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>京东进制均值</title>
+		<script>
+			window.onload=function(){
+				console.log(3);
+				var line=5;
+  	         var a = line;
+		      var sum = 0;
+		      var nums = [];
+		      for(var i=0; i<a-2; i++) {
+		      	nums[i] = a;
+		      }
+		      while(nums[0] > 0) {
+		      	for(var i=0; i<a-2; i++) {
+		        	sum += nums[i]%(i+2);
+		        	console.log("sum"+sum);
+		            nums[i] = Math.floor(nums[i]/(i+2));
+		            console.log("nums"+nums[i]);
+		        }
+		      }
+		      var gy = gongyue(sum, a-2);
+		      print(sum/gy + '/' + (a-2)/gy);
+		      
+		    function gongyue( m, n) {   
+		        while (m % n != 0) {   
+		            var temp = m % n;   
+		            m = n;   
+		            n = temp;   
+		        }   
+		        return n;
+		     }
+}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

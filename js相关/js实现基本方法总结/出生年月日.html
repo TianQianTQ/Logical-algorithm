@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/birthday.js" ></script>
+	</head>
+	<body>
+		<select id="selYear"></select>年
+<select id="selMonth"></select>月
+<select id="selDay"></select>日
+<!--完成出生日期的选择--需写在</body>前-->
+<script type="text/javascript">
+var selYear = window.document.getElementById("selYear");
+var selMonth = window.document.getElementById("selMonth");
+var selDay = window.document.getElementById("selDay");
+// 新建一个DateSelector类的实例，将三个select对象传进去
+new DateSelector(selYear, selMonth, selDay, 1995, 1, 1);
+// 也可以试试下边的代码
+// var dt = new Date(2004, 1, 29);
+// new DateSelector(selYear, selMonth ,selDay, dt);
+</script>
+	</body>
+</html>

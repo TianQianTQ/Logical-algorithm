@@ -1,0 +1,1 @@
+console.log('a');new Promise((resolve,reject)=>{    resolve();    console.log('b');    reject();    console.log('c');}).then(function(){    setTimeout(function(){        console.log('d')    },0)    console.log('e');})console.log('f');//  a  b   c   f   e   d// setTimeout是将其中的事件添加在当前事件队列的最后，当其他事件执行之后它再执行，所以是最后执行。// promise一经创建，立即执行，状态一经改变，就触发then里的函数响应

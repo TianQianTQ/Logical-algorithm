@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		Array.prototype.uniq = function(){
+		    var hasNaN = false;
+		    for(var i = 0; i< this.length;i++){
+		        if(this[i] !== this[i]) hasNaN = true;
+		        for(var j = i+1; j<this.length;){
+		            if(this[i] === this[j] || (hasNaN && this[j] !== this[j])) {
+		                this.splice(j,1);
+					}else{
+		                j++;
+					}
+				}
+			}
+			return this;
+		}
+		var array = [3,5,2,7,5,2,1,8,9,3,5];
+		console.log(array.uniq());
+
+		function uniq(array){
+		    return Array.from(new Set(array));
+		}
+		function uniq1(array){
+		    return [...new Set(array)];
+		}
+		function uniq2(array){
+		    let res = new Map()
+			return array.filter((a)=> !res.has(a) && res.set(a,1))
+		}
+		</script>
+	</body>
+</html>
