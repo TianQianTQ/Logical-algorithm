@@ -18,4 +18,3 @@ function NumberOf1Between1AndN_Solution(n) {
     })
     return count
 }
-
